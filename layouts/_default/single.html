@@ -5,7 +5,7 @@
 </header>
 
 <p>SKU: {{ .File.BaseFileName }}</p>
-<p>Price: {{ .Params.Price }} {{ $.Site.Params.currency }}</p>
+<p>Price: {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}</p>
 
 {{.Content}}
 

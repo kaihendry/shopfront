@@ -2,11 +2,11 @@
 
 {{ .Content }}
 
-<ul>
-{{ range $.Site.RegularPages }}
+<ul title="default">
+{{ range ($.Site.RegularPages.ByParam "Price").Reverse }}
 <li><a href="{{.RelPermalink}}">
 {{ $alternate_title := replace .File.BaseFileName "_" " " | title }}
-{{ .Title  | default $alternate_title }} - Price {{ .Params.Price }} {{ $.Site.Params.currency }}
+{{ .Title  | default $alternate_title }} - Price {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}
 </a></li>
 {{ end }}
 </ul>

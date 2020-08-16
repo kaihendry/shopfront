@@ -3,3 +3,7 @@ pluralizelisttitles = false
 [params]
 	email = "hendry+shop@iki.fi"
 	currency = "SGD" # ISO 4217
+[taxonomies]
+	category = "categories"
+	vendor = "vendors"
+	tag = "tags"
