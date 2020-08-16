@@ -3,10 +3,10 @@
 {{ .Content }}
 
 <ul>
-{{ range .Pages }}
+{{ range $.Site.RegularPages }}
 <li><a href="{{.RelPermalink}}">
 {{ $alternate_title := replace .File.BaseFileName "_" " " | title }}
-{{ .Title  | default $alternate_title }}
+{{ .Title  | default $alternate_title }} - Price {{ .Params.Price }} {{ $.Site.Params.currency }}
 </a></li>
 {{ end }}
 </ul>
