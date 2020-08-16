@@ -7,6 +7,8 @@ Structure:
 TODO:
 
 * Integrate Stripe Connect
-* Explore tags / categories
+* Sort by low/high price
+* Introduce vendor name / brand filtering
 * Map to an [Inventory system](https://www.youtube.com/watch?v=nAcNgmYPA-4)
-* Come up with some image system: product before (packaged) / after (being served / consumed)
+* Come up with some square image system: product before (packaged) / after (being served / consumed)
+* Explore tags / categories

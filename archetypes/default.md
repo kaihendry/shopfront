@@ -1,6 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-draft: true
+Title: "{{ replace .Name "-" " " | title }}"
+Date: {{ .Date }}
+Price: 100
+Draft: true
 ---
 
