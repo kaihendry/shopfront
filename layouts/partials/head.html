@@ -1,0 +1,15 @@
+<head>
+<meta charset="utf-8">
+{{ $alternate_title := replace .File.BaseFileName "_" " " | title }}
+<title>{{ .Title  | default $alternate_title }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ if .Params.icon }}
+<link rel="icon" href="{{ .Params.icon }}" sizes="any" type="image/svg+xml">
+{{ end }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ range .AlternativeOutputFormats -}}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>

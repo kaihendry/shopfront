@@ -1,0 +1,21 @@
+{{ define "main" }}
+<header>
+<h1>{{.Title}}</h1>
+<h4>Published: {{ dateFormat "Monday, Jan 2, 2006" .Date }} Last modified: {{ dateFormat "Monday, Jan 2, 2006" .Params.LastMod }}</h4>
+</header>
+
+<p>SKU: {{ .File.BaseFileName }}</p>
+<p>Price: {{ .Params.Price }} {{ $.Site.Params.currency }}</p>
+
+{{.Content}}
+
+<nav>
+{{ if .PrevInSection }}
+<a href="{{ .PrevInSection.RelPermalink }}" title="{{ .PrevInSection.Title}}">&larr;Previous</a>
+{{ end }}
+{{ if .NextInSection }}
+<a href="{{ .NextInSection.RelPermalink }}" title="{{ .NextInSection.Title}}">Next&rarr;</a>
+{{ end }}
+</nav>
+
+{{ end }}
