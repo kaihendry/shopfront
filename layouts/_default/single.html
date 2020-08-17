@@ -1,13 +1,26 @@
 {{ define "main" }}
 <header>
-<h1>{{.Title}}</h1>
-<h4>Published: {{ dateFormat "Monday, Jan 2, 2006" .Date }} Last modified: {{ dateFormat "Monday, Jan 2, 2006" .Params.LastMod }}</h4>
+<h3>{{.Description}}</h3>
+<h4>Price: {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}</h4>
+<h5>Published: {{ dateFormat "Monday, Jan 2, 2006" .Date }} Last modified: {{ dateFormat "Monday, Jan 2, 2006" .Params.LastMod }}</h5>
 </header>
 
-<p>SKU: {{ .File.BaseFileName }}</p>
-<p>Price: {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}</p>
-
 {{.Content}}
+
+<p>SKU: {{ .File.ContentBaseName }}</p>
+
+{{ with .Resources.ByType "image" }}
+
+{{ range $index, $element := . }}
+{{ $image := .Fill "300x300" }}
+<a href="{{ .RelPermalink }}"><img alt="{{ $image.Title }}" src="{{ $image.Permalink }}"></a>
+{{ end }}
+{{ end }}
+
+{{ range .Params.Youtube }}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ . }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{ end }}
+
 
 <nav>
 {{ if .PrevInSection }}

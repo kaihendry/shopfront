@@ -12,4 +12,22 @@
 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+<style>
+/* https://css-tricks.com/designing-a-product-page-layout-with-flexbox/ */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+  display: flex; /* so child elements can use flexbox stuff too! */
+}
+
+.product img {
+  max-width: 100%;
+}
+</style>
 </head>

@@ -1,3 +1,5 @@
+# STATUS: WIP, NOT EVEN AN MVP
+
 Idea behind project https://dabase.com/blog/2020/Shop-front/
 
 # Product content file
@@ -14,6 +16,7 @@ https://example.com/2020/wrt1/filtered-water
 
 * Integrate Stripe Connect
 * Come up with some square image system: product before (packaged) / after (being served / consumed)
+* Switch to WebP https://github.com/gohugoio/hugo/issues/5924
 
 # Stage 2: Inventory mapping
 

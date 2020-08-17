@@ -2,12 +2,10 @@
 
 {{ .Content }}
 
-<ul title="default">
-{{ range ($.Site.RegularPages.ByParam "Price").Reverse }}
-<li><a href="{{.RelPermalink}}">
-{{ $alternate_title := replace .File.BaseFileName "_" " " | title }}
-{{ .Title  | default $alternate_title }} - Price {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}
-</a></li>
+<section class="products">
+{{ range $.Site.RegularPages }}
+{{ partial "product.html" . }}
 {{ end }}
-</ul>
+</div>
+
 {{ end }}
