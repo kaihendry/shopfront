@@ -7,3 +7,7 @@ pluralizelisttitles = false
 	category = "categories"
 	vendor = "vendors"
 	tag = "tags"
+[outputs]
+    page = ["html","json"]
+    section = ["html","json"]
+    home = ["html","json"]

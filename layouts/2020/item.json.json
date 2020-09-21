@@ -1,0 +1,6 @@
+{
+  "name": "{{ .Title }}",
+  "price": "{{ .Params.Price }}",
+  "sku": "{{ .File.ContentBaseName }}",
+  "permalink": "{{ .Permalink }}"
+}
