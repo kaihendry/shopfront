@@ -7,7 +7,7 @@
 
 {{.Content}}
 
-<p>SKU: {{ $sku := .File.ContentBaseName }} {{ $sku }} is actually "wrt1"</p>
+<p>SKU: {{ $sku := .File.ContentBaseName }}</p>
 <p>Stripe price ID {{ index .Site.Data.stripe $sku }}</p>
 
 {{ with .Resources.ByType "image" }}
@@ -21,7 +21,6 @@
 {{ range .Params.Youtube }}
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ . }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {{ end }}
-
 
 <nav>
 {{ if .PrevInSection }}
