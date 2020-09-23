@@ -6,22 +6,28 @@ Idea behind project https://dabase.com/blog/2020/Shop-front/
 
 Structure of product content:
 
-	content/YYYY/SKU.md
+	content/YYYY/SKU/index.md
 
 Ideally SKU is like the SO question ID, so that later we can have more readable URLs like:
 
-https://example.com/2020/wrt1/filtered-water
+https://example.com/2020/wrt1/filtered-water i.e. everything after https://example.com/2020/wrt1/ is ignored
 
-# TODO
+In content/2020/wrt1/index.md the [Front
+Matter](https://gohugo.io/content-management/front-matter/) is **the single
+source of truth for product**. From here public/2020/index.json, aka the products
+are synced with Stripe's backend.
+
+From Stripe we then populate data/stripe.json with the price_ ids required for
+[client-only
+checkout](https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checkout_redirect_to_checkout-options-lineItems-price).
+
+# Stripe client-only mode
+
+<img src="https://s.natalian.org/2020-09-23/cant-delete-product.png">
 
 * Integrate Stripe Connect
 * Come up with some square image system: product before (packaged) / after (being served / consumed)
-* Switch to WebP https://github.com/gohugoio/hugo/issues/5924
-
-# Stage 2: Inventory mapping
-
-* [Inventory system example](https://www.youtube.com/watch?v=nAcNgmYPA-4)
-* https://useshoppingcart.com/usage/validateCartItems() & https://github.com/dayhaysoos/use-shopping-cart/tree/master/examples/cra
+* https://useshoppingcart.com/usage/cartprovider#client-only-checkout-mode
 
 # Data structure
 
