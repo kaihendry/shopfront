@@ -1,6 +1,8 @@
 #!/bin/bash -e
 # https://stripe.com/docs/billing/prices-guide
 
+# TODO: Lookup CURRENCY from config.toml
+
 mkdir -p data/product/ data/price 2>/dev/null || true
 
 if test -f .env

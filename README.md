@@ -2,24 +2,32 @@
 
 Idea behind project https://dabase.com/blog/2020/Shop-front/
 
+# Local development
+
+Install [hugo](https://gohugo.io/)
+
+	npm i
+	echo STRIPE_SECRET=sk... > .env
+	edit config.toml
+	hugo serve
+
+Create products in content/2020/
+
 # Product content file
 
 Structure of product content:
 
 	content/YYYY/SKU/index.md
 
-Ideally SKU is like the SO question ID, so that later we can have more readable URLs like:
-
-https://example.com/2020/wrt1/filtered-water i.e. everything after https://example.com/2020/wrt1/ is ignored
-
 In content/2020/wrt1/index.md the [Front
 Matter](https://gohugo.io/content-management/front-matter/) is **the single
-source of truth for product**. From here public/2020/index.json, aka the products
-are synced with Stripe's backend.
+source of truth for product**. From `public/*/index.json`, the product listing
+in JSON are synced with Stripe's backend, via `make`.
 
-From Stripe we then populate data/stripe.json with the price_ ids required for
-[client-only
-checkout](https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checkout_redirect_to_checkout-options-lineItems-price).
+The individual product pages then reference the required [client-only
+checkout](https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checkout_redirect_to_checkout-options-lineItems-price)
+**Price ID** from the `data/price` directory via [Hugo Data
+templates](https://gohugo.io/templates/data-templates/).
 
 # Stripe client-only mode
 
@@ -59,4 +67,3 @@ For example <https://online.vicsmeat.com.au/> asks for a post code off the bat.
 Resolution: Offer a button to enable GPS to autofill their location but also allow them to type it in.
 
 Stripe has a **shipping_address_collection.allowed_countries** as documented in [validateCartItems session](https://useshoppingcart.com/usage/validateCartItems())
-
