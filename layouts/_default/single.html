@@ -1,17 +1,30 @@
 {{ define "main" }}
+{{ $sku := .File.ContentBaseName }}
 <header>
 <h3>{{.Description}}</h3>
 <h4>Price: {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}</h4>
 <h5>Published: {{ dateFormat "Monday, Jan 2, 2006" .Date }} Last modified: {{ dateFormat "Monday, Jan 2, 2006" .Params.LastMod }}</h5>
 </header>
 
+<div id="react"></div>
+<script>
+	const productData = [
+		{
+			name: '{{ .Title }}',
+			sku: '{{ index (index .Site.Data.price $sku) "id" }}',
+			price: {{ .Params.Price }},
+			image: 'https://www.fillmurray.com/300/300',
+			currency: '{{ $.Site.Params.currency }}'
+		}
+	]
+</script>
+
 {{.Content}}
 
-<p>SKU: {{ $sku := .File.ContentBaseName }} {{ $sku }}</p>
+<p>SKU: {{ $sku }}</p>
 <p>Stripe price ID {{ index (index .Site.Data.price $sku) "id" }}</p>
 
 {{ with .Resources.ByType "image" }}
-
 {{ range $index, $element := . }}
 {{ $image := .Fill "300x300" }}
 <a href="{{ .RelPermalink }}"><img alt="{{ $image.Title }}" src="{{ $image.Permalink }}"></a>

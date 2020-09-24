@@ -4,6 +4,13 @@
 <title>{{ .Title  | default $alternate_title }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Basket functionality via https://useshoppingcart.com/ -->
+{{ with resources.Get "index.jsx" }}
+{{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"" "process.env.REACT_APP_STRIPE_API_PUBLIC" "\"pk_test_1amuSFIBwCaicwoNGifewy4a\""  "process.env.CURRENCY" "\"SGD\"" ) }}
+{{ $script := . | js.Build $options }}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}
+
 {{ if .Params.icon }}
 <link rel="icon" href="{{ .Params.icon }}" sizes="any" type="image/svg+xml">
 {{ end }}

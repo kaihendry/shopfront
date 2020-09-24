@@ -3,11 +3,12 @@ pluralizelisttitles = false
 [params]
 	email = "hendry+shop@iki.fi"
 	currency = "SGD" # ISO 4217
+	stripe = "pk_test_1amuSFIBwCaicwoNGifewy4a"
 [taxonomies]
 	category = "categories"
 	vendor = "vendors"
 	tag = "tags"
 [outputs]
-    page = ["html","json"]
-    section = ["html","json"]
-    home = ["html","json"]
+	page = ["html","json"]
+	section = ["html","json"]
+	home = ["html","json"]
