@@ -7,8 +7,8 @@
 
 {{.Content}}
 
-<p>SKU: {{ $sku := .File.ContentBaseName }}</p>
-<p>Stripe price ID {{ index .Site.Data.stripe $sku }}</p>
+<p>SKU: {{ $sku := .File.ContentBaseName }} {{ $sku }}</p>
+<p>Stripe price ID {{ index (index .Site.Data.price $sku) "id" }}</p>
 
 {{ with .Resources.ByType "image" }}
 
