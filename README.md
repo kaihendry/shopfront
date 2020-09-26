@@ -1,6 +1,7 @@
-# STATUS: WIP, NOT EVEN AN MVP
-
 Idea behind project https://dabase.com/blog/2020/Shop-front/
+
+* [Intro and inspiration](https://www.youtube.com/watch?v=KtHz5JO7QS4)
+* [Static Hugo client only MVP](https://www.youtube.com/watch?v=9TkttbV0Ydg)
 
 # Local development
 
@@ -11,7 +12,7 @@ Install [hugo](https://gohugo.io/)
 	edit config.toml
 	hugo serve
 
-Create products in content/2020/
+Create products in `content/2020/`
 
 # Product content file
 
@@ -19,7 +20,7 @@ Structure of product content:
 
 	content/YYYY/SKU/index.md
 
-In content/2020/wrt1/index.md the [Front
+In `content/2020/wrt1/index.md` the [Front
 Matter](https://gohugo.io/content-management/front-matter/) is **the single
 source of truth for product**. From `public/*/index.json`, the product listing
 in JSON are synced with Stripe's backend, via `make`.
@@ -33,30 +34,11 @@ templates](https://gohugo.io/templates/data-templates/).
 
 <img src="https://s.natalian.org/2020-09-23/cant-delete-product.png">
 
-* Integrate Stripe Connect
-* Come up with some square image system: product before (packaged) / after (being served / consumed)
 * https://useshoppingcart.com/usage/cartprovider#client-only-checkout-mode
 
 # Data structure
 
-Follows that of https://useshoppingcart.com/usage/cartprovider/
-
-	const products = [
-	  {
-		name: 'Bananas',
-		// sku ID from your Stripe Dashboard
-		sku: 'sku_GBJ2Ep8246qeeT',
-		// price in smallest currency unit (e.g. cent for USD)
-		price: 400,
-		currency: 'USD',
-		// Optional image to be shown on the Stripe Checkout page
-		image: 'https://my-image.com/image.jpg'
-	  }
-	]
-
-This needs to be marked up in Hugo https://gohugo.io/content-management/front-matter/ in the **product content file** and will be outputed by a Hugo layout template.
-
-Currency is set in the Hugo config `.params.currency`
+Follows that of https://useshoppingcart.com/usage/cartprovider/ in `layouts/_default/single.html`.
 
 # Delivery options
 
