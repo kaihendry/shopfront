@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # https://stripe.com/docs/billing/prices-guide
 
-# TODO: Lookup CURRENCY from config.toml
+CURRENCY=$(grep currency config.toml | awk '{print $3}' | tr -d '"' | tr '[:upper:]' '[:lower:]')
 
 mkdir -p data/product/ data/price 2>/dev/null || true
 
@@ -39,7 +39,7 @@ do
 
 		# TODO: Check for price change
 		test -s "$stripeprice" ||
-		curl https://api.stripe.com/v1/prices -u "${STRIPE_SECRET}:" -d product="$prodid" -d unit_amount="$price" -d currency="${CURRENCY:-"usd"}" > "$stripeprice"
+		curl https://api.stripe.com/v1/prices -u "${STRIPE_SECRET}:" -d product="$prodid" -d unit_amount="$price" -d currency="${CURRENCY}" > "$stripeprice"
 		priceid=$(jq -r '.id' < "$stripeprice")
 		echo Price ID: "$priceid"
 

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Basket functionality via https://useshoppingcart.com/ -->
 {{ with resources.Get "index.jsx" }}
-{{ $options := dict "defines" (dict "process.env.NODE_ENV" "\"development\"" "process.env.REACT_APP_STRIPE_API_PUBLIC" "\"pk_test_1amuSFIBwCaicwoNGifewy4a\""  "process.env.CURRENCY" "\"SGD\"" ) }}
+{{ $options := dict "defines" (dict "process.env.NODE_ENV" `"production"` "process.env.REACT_APP_STRIPE_API_PUBLIC" (printf `"%s"` $.Site.Params.stripe) "process.env.CURRENCY" (printf `"%s"` $.Site.Params.currency) ) }}
 {{ $script := . | js.Build $options }}
 <script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
