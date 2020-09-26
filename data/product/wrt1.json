@@ -1,0 +1,21 @@
+{
+  "id": "prod_I4tshyk6JWCT4P",
+  "object": "product",
+  "active": true,
+  "attributes": [
+
+  ],
+  "created": 1600914051,
+  "description": null,
+  "images": [
+
+  ],
+  "livemode": false,
+  "metadata": {
+  },
+  "name": "A water bottle",
+  "statement_descriptor": null,
+  "type": "service",
+  "unit_label": null,
+  "updated": 1600914051
+}

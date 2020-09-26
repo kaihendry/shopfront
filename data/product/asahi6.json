@@ -1,0 +1,21 @@
+{
+  "id": "prod_I4tsHgQ7wYofSq",
+  "object": "product",
+  "active": true,
+  "attributes": [
+
+  ],
+  "created": 1600914052,
+  "description": null,
+  "images": [
+
+  ],
+  "livemode": false,
+  "metadata": {
+  },
+  "name": "Asahi Super Dry 6 pack 🍻",
+  "statement_descriptor": null,
+  "type": "service",
+  "unit_label": null,
+  "updated": 1600914052
+}
