@@ -14,8 +14,8 @@ const App = () => {
       mode='client-only'
       stripe={stripePromise}
       billingAddressCollection={false}
-      successUrl='https://stripe.com'
-      cancelUrl='https://twitter.com/kaihendry'
+      successUrl={process.env.BaseURL + "/stripe/success"}
+      cancelUrl={process.env.BaseURL + "/stripe/cancel"}
       currency={process.env.CURRENCY}>
 
       <Flex sx={{ justifyContent: 'space-evenly' }}>

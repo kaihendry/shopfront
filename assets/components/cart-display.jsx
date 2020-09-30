@@ -23,15 +23,15 @@ const lineItems = []
     const options = {
       mode: 'payment',
       lineItems,
-      successUrl: 'https://stripe.com',
-      cancelUrl: 'https://twitter.com/kaihendry',
+      successUrl: `${process.env.BaseURL}/stripe/success`,
+      cancelUrl: `${process.env.BaseURL}/stripe/cancel`,
       billingAddressCollection: false
         ? 'required'
         : 'auto',
       submitType: 'auto'
     }
 
-	// console.log(options)
+	console.log("redirecting to Stripe for payment", options)
     redirectToCheckout(options)
   }
 
