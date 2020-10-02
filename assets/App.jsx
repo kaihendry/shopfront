@@ -13,6 +13,8 @@ const App = () => {
     <CartProvider
       mode='client-only'
       stripe={stripePromise}
+	  // https://stripe.com/docs/payments/checkout/client#collect-shipping-address
+	  allowedCountries={['SG']}
       billingAddressCollection={false}
       successUrl={process.env.BaseURL + "/stripe/success"}
       cancelUrl={process.env.BaseURL + "/stripe/cancel"}
