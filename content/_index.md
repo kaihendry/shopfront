@@ -1,7 +1,5 @@
 ---
-title: Welcome to my shop
+title: The new Alaska Guys online shop for Singapore
 ---
-{{< youtube 9TkttbV0Ydg >}}
 
-* [Low to High price](/priceasc)
-* [High to Low price](/pricedsc)
+![The Alaska Guys logo](/logo.png)

@@ -1,14 +1,13 @@
-title = "Shop front demonstration"
+title = "The new Alaska Guys shop"
 pluralizelisttitles = false
+enableRobotsTXT = true
 # baseURL is needed for successUrl/cancelUrl redirection from Stripe
-baseURL = "https://shpfrnt.netlify.app"
+baseURL = "https://shop.thealaskaguys.com"
 [params]
-	email = "hendry+shop@iki.fi"
+	email = "hendry+alaskaguys@iki.fi"
 	currency = "SGD" # ISO 4217
 	stripe = "pk_test_1amuSFIBwCaicwoNGifewy4a"
 [taxonomies]
-	category = "categories"
-	vendor = "vendors"
 	tag = "tags"
 [outputs]
 	page = ["html","json"]
