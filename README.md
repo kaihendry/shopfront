@@ -38,18 +38,24 @@ checkout](https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checko
 **Price ID** from the `data/price` directory via [Hugo Data
 templates](https://gohugo.io/templates/data-templates/).
 
-## Stripe client-only mode
+## Sync with stripe
+You don't need to create your product on stripe; `stripe-sync.sh` does this for you.
 
+	make
+
+
+## Publish to your website
+Move the contents of `public` to your webserver.
+
+## Stripe client-only mode
 <img src="https://s.natalian.org/2020-09-23/cant-delete-product.png">
 
 * https://useshoppingcart.com/usage/cartprovider#client-only-checkout-mode
 
 ## Data structure
-
 Follows that of https://useshoppingcart.com/usage/cartprovider/ in `layouts/_default/single.html`.
 
 ## Delivery options
-
 How to advertise **delivery limitations** ASAP, as to not waste anybodies time?
 
 For example <https://online.vicsmeat.com.au/> asks for a post code off the bat.
