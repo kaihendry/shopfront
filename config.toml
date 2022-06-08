@@ -1,4 +1,4 @@
-title = "Shop front demonstration"
+title = "shopfront"
 pluralizelisttitles = false
 # baseURL is needed for successUrl/cancelUrl redirection from Stripe
 baseURL = "https://shpfrnt.netlify.app"

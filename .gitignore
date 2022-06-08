@@ -1,4 +1,8 @@
+.env
+.hugo_build.lock
+assets/jsconfig.json
+data
+node_modules/
+/package-lock.json
 public
 resources
-node_modules/
-.env
