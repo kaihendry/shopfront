@@ -14,7 +14,7 @@
 Find your stripe secret key [here](https://dashboard.stripe.com/apikeys). (Consider using /test/apikeys during testing).
 
 	echo STRIPE_SECRET=sk... > .env
-	edit `config.toml`
+	edit config.toml
 	hugo server
 
 
