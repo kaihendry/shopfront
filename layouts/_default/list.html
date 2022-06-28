@@ -1,11 +1,6 @@
 {{ define "main" }}
 
-{{ .Content }}
-
-<section class="products">
-{{ range $.Site.RegularPages }}
-{{ partial "product.html" . }}
-{{ end }}
-</div>
+<section class="products">{{ range $.Site.RegularPages }}
+{{ partial "product.html" . }}{{ end }}</section>
 
 {{ end }}

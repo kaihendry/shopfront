@@ -1,7 +1,7 @@
 title = "shopfront"
 pluralizelisttitles = false
 # baseURL is needed for successUrl/cancelUrl redirection from Stripe
-baseURL = "https://filmsbytom.net/shop"
+baseURL = "https://filmsbytom.com/shop"
 [params]
 	email = "tom5@posteo.net"
 	currency = "GBP" # ISO 4217

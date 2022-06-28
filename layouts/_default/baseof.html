@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-{{- partial "head.html" . -}}
-<body>
-
-{{- partial "breadcrumb.html" . -}}
-
-<article>
-{{- block "main" . }}{{- end }}
-</article>
-
-{{- partial "footer.html" . -}}
-
-</body>
+<!doctype html>
+<html>{{ partial "head.html" . }}<body>
+<h1><a href="{{ .Site.BaseURL }}">FilmsByTom.com</a></h1>
+<article>{{ block "main" . }}{{ end }}</article>{{ partial "footer.html" . }}</body>
 </html>

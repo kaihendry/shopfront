@@ -5,5 +5,6 @@ node_modules
 .hugo_build.lock
 assets/jsconfig.json
 package-lock.json
+data
 
-draft
+to-do
