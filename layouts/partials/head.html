@@ -1,18 +1,30 @@
-
+<!doctype html>
+<html>
 <head>
-<title>🛒 FilmsByTom.com</title>
+<title>&#x1F6D2; {{ .Site.Title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-{{ with resources.Get "index.jsx" }}
-{{ $options := dict "defines" (dict "process.env.NODE_ENV" `"production"` "process.env.REACT_APP_STRIPE_API_PUBLIC" (printf `"%s"` $.Site.Params.stripe) "process.env.CURRENCY" (printf `"%s"` $.Site.Params.currency) "process.env.BaseURL" (printf `"%s"` $.Site.BaseURL) ) }}
-{{ $script := . | js.Build $options }}
-<script src="{{ $script.RelPermalink }}" defer></script>
-{{ end }}
-{{ if .Params.icon }}
-<link rel="icon" href="{{ .Params.icon }}" sizes="any" type="image/svg+xml">
-{{ end }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ range .AlternativeOutputFormats -}}
-{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
+
+{{ with resources.Get "index.jsx" -}}
+{{- $options := dict "defines" (dict "process.env.NODE_ENV" `"production"` "process.env.REACT_APP_STRIPE_API_PUBLIC" (printf `"%s"` $.Site.Params.stripe) "process.env.CURRENCY" (printf `"%s"` $.Site.Params.currency) "process.env.BaseURL" (printf `"%s"` $.Site.BaseURL) ) -}}
+{{- $script := . | js.Build $options -}}
+<script src="
+{{- $script.RelPermalink -}}
+" defer></script>
+{{- end -}}
+{{- if .Params.icon -}}
+<link rel="icon" href="
+{{- .Params.icon -}}
+" sizes="any" type="image/svg+xml">
+{{- end -}}
+{{- range .AlternativeOutputFormats }}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML -}}
+{{- end }}
+
 <link rel="stylesheet" href="/shop/stylesheet.css" />
 </head>
+<body>
+<h1><a href="
+{{- .Site.BaseURL -}}
+">
+{{- .Site.Title -}}
+</a></h1>

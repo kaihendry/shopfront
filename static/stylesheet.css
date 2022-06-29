@@ -2,6 +2,12 @@ html {
 margin: 0 auto;
 max-width: 900px;
 }
+@media screen and (max-width: 900px) {
+html {
+padding-left: 2%;
+padding-right: 2%;
+}
+}
 body {
 background: black;
 font-family: sans-serif;
@@ -11,14 +17,22 @@ margin-top: 0px;
 margin-left: 0px;
 }
 h1, h2 { font-family: serif; }
+
+h1 {
+color: tomato;
+font-weight: bold;
+font-size: 43pt;
+word-wrap: break-word;
+}
 h1 a {
 color: tomato;
 font-weight: bold;
 font-size: 43pt;
+word-wrap: break-word;
 
 text-decoration: none;
-word-wrap: break-word;
 }
+
 h2 {
 color: skyblue;
 }
@@ -32,6 +46,8 @@ text-align: center;
 }
 footer a {
 color: #6c757d;
+font-family: monospace;
+font-size: 13pt;
 }
 
 .products {
@@ -41,7 +57,7 @@ flex-wrap: wrap;
 .product {
 padding: 2%;
 flex-grow: 1;
-flex-basis: 26%;
+flex-basis: 33%;
 display: flex;
 }
 .product img {

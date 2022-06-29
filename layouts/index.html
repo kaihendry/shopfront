@@ -1,0 +1,8 @@
+{{ partial "head.html" . }}
+<section class="products">
+{{ range $.Site.RegularPages }}
+{{ partial "product.html" . }}
+{{ end -}}
+</section>
+
+{{ partial "footer.html" . }}

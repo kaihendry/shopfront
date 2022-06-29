@@ -1,10 +1,20 @@
 <div class="product">
-<a href="{{ .RelPermalink }}">
-{{ with .Resources.ByType "image" }}
-{{ range $index, $element := first 1 . }}
-{{ $image := .Fit "300x300" }}
-<img src="{{ $image.Permalink }}">
-{{ end }}
-{{ end }}<h2>{{ .Title }} &ndash; £{{ partial "price.html" .Params.Price }}</h2>
+<a href="
+{{- .RelPermalink -}}
+">
+{{- with .Resources.ByType "image" }}
+{{- range $index, $element := first 1 . }}
+{{- $image := .Resize "x300" }}
+<img src="
+{{- $image.Permalink -}}
+">
+{{ end -}}
+{{ end -}}
+<h2>
+{{- .Title }}
+&ndash;
+{{ partial "price.html" .Params.Price }}
+{{ $.Site.Params.currency -}}
+</h2>
 </a>
 </div>
