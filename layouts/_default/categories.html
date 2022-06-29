@@ -1,8 +1,7 @@
 {{ partial "head.html" . }}
 {{ .Content }}
 <section class="products">
-{{ $favorite := index site.Taxonomies.tags.favorite.Pages }}
-{{ range $favorite }}
+{{ range .Pages }}
 {{ partial "product.html" . }}
 {{ end }}
 </section>

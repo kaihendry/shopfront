@@ -9,5 +9,11 @@ Draft: true
 #   title: "image of cap"
 # YouTube:
 # - ...........
+# categories:
+#  - 
+# vendors:
+#  - 
+# tags:
+#  - 
 ---
 
