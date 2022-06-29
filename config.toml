@@ -1,11 +1,11 @@
-title = "FilmsByTom.com shop"
+title = "Shop front demonstration"
 pluralizelisttitles = false
 # baseURL is needed for successUrl/cancelUrl redirection from Stripe
-baseURL = "https://filmsbytom.com/shop"
+baseURL = "https://shpfrnt.netlify.app"
 [params]
-	email = "tom5@posteo.net"
-	currency = "GBP" # ISO 4217
-	stripe = "pk_test_"
+	email = "hendry+shop@iki.fi"
+	currency = "SGD" # ISO 4217
+	stripe = "pk_test_1amuSFIBwCaicwoNGifewy4a"
 [taxonomies]
 	category = "categories"
 	vendor = "vendors"

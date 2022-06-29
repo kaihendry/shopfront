@@ -1,12 +1,6 @@
 <footer>
-<a href="/shop/about">About {{ .Site.Title }}</a>
-<p>Have a question? <a href="mailto:
-{{- $.Site.Params.email -}}
-?subject=
-{{- .Permalink -}}
-">Send me an e-mail.</a>
-<br />
-<a href="https://github.com/tomhonour/shopfront">This site's source code.</a></p>
+<p>Comments? <a href="mailto:{{ $.Site.Params.email }}?subject={{ .Permalink }}">Email please</a>
+<br>
+<a href="https://github.com/kaihendry/shopfront">Source code</a>
+</p>
 </footer>
-</body>
-</html>

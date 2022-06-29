@@ -1,5 +1,6 @@
 ---
-title: Payment failed
+title: Payment failure
+description: You are seeing this because payment failed
 ---
 
-Payment failed. Please contact us.
+Please contact us, so we can investigate the issue.

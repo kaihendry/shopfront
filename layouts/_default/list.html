@@ -1,10 +1,11 @@
-{{ partial "head.html" . }}
-{{ range.Pages }}
+{{ define "main" }}
 
-<li>
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 Jan 02" }}</time> &ndash;
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-</li>
+{{ .Content }}
+
+<section class="products">
+{{ range $.Site.RegularPages }}
+{{ partial "product.html" . }}
+{{ end }}
+</div>
 
 {{ end }}
-{{ partial "footer.html" . }}

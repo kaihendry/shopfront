@@ -1,14 +1,11 @@
-{{ partial "head.html" . }}
+{{ define "main" }}
 {{ $sku := .File.ContentBaseName }}
 <header>
-<h2>
-{{.Title}}
-</h2>
-<h3>
-{{ lang.NumFmt 2 (div (float .Params.Price) 100) }}
-{{ $.Site.Params.currency }}
-</h3>
+<h3>{{.Description}}</h3>
+<h4>Price: {{ lang.NumFmt 2 (div (float .Params.Price) 100) }} {{ $.Site.Params.currency }}</h4>
+<h5>Published: {{ dateFormat "Monday, Jan 2, 2006" .Date }} Last modified: {{ dateFormat "Monday, Jan 2, 2006" .Params.LastMod }}</h5>
 </header>
+
 <div id="react"></div>
 <script>
 	const productData = [
@@ -20,28 +17,44 @@
 			price: {{ .Params.Price }},
 {{ if ( gt ( len (.Resources.ByType "image")) 0 ) }}
 {{ range first 1 (.Resources.ByType "image") }}
-{{ $image := .Resize "x300" }}
+{{ $image := .Fill "300x300" }}
 			image: '{{ $image.Permalink }}',
 {{ end }}
 {{ else }}
-			image: '/shop/noproductimage.png',
+			image: 'https://www.fillmurray.com/300/300',
 {{ end }}
 			currency: '{{ $.Site.Params.currency }}'
 		}
 	]
 </script>
+
 {{.Content}}
-<!--
-<p style="color: #6c757d;">SKU: 
-{{ $sku }}
-</p>
+
+<p>SKU: {{ $sku }}</p>
 {{ if (fileExists (printf "data/price/%s.json" $sku)) }}
-<p>Stripe price ID 
-{{ index (index .Site.Data.price $sku) "id" }}
-</p>
+<p>Stripe price ID {{ index (index .Site.Data.price $sku) "id" }}</p>
 {{ else }}
-<p>ERROR: RUN 'stripe-sync.sh'
-</p>
+<p>stripe-sync.sh needs to be run since price ID for checkout is not found.</p>
 {{ end }}
--->
-{{ partial "footer.html" . }}
+
+{{ with .Resources.ByType "image" }}
+{{ range $index, $element := . }}
+{{ $image := .Fill "300x300" }}
+<a href="{{ .RelPermalink }}"><img alt="{{ $image.Title }}" src="{{ $image.Permalink }}"></a>
+{{ end }}
+{{ end }}
+
+{{ range .Params.Youtube }}
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ . }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{ end }}
+
+<nav>
+{{ if .PrevInSection }}
+<a href="{{ .PrevInSection.RelPermalink }}" title="{{ .PrevInSection.Title}}">&larr;Previous</a>
+{{ end }}
+{{ if .NextInSection }}
+<a href="{{ .NextInSection.RelPermalink }}" title="{{ .NextInSection.Title}}">Next&rarr;</a>
+{{ end }}
+</nav>
+
+{{ end }}

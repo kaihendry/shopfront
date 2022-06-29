@@ -1,5 +1,6 @@
 ---
-title: Payment succeeded
+title: Great success
+description: You should only be redirected here on successful payment
 ---
 
-Payment succeeded! You should receive an e-mail shortly.
+Thank you for purchasing, you will receive an email confirming the order.
