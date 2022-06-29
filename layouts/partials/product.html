@@ -2,7 +2,7 @@
 <a href="{{.RelPermalink}}">
 {{ with .Resources.ByType "image" }}
 {{ range $index, $element := first 1 . }}
-{{ $image := .Fill "300x300" }}
+{{ $image := .Resize "x300" }}
 <img src="{{ $image.Permalink }}">
 {{ end }}
 {{ end }}

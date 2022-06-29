@@ -17,7 +17,7 @@
 			price: {{ .Params.Price }},
 {{ if ( gt ( len (.Resources.ByType "image")) 0 ) }}
 {{ range first 1 (.Resources.ByType "image") }}
-{{ $image := .Fill "300x300" }}
+{{ $image := .Resize "x300" }}
 			image: '{{ $image.Permalink }}',
 {{ end }}
 {{ else }}
