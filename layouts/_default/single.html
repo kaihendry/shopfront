@@ -1,4 +1,4 @@
-{{ define "main" }}
+{{ partial "head.html" . }}
 {{ $sku := .File.ContentBaseName }}
 <header>
 <h3>{{.Description}}</h3>
@@ -57,4 +57,4 @@
 {{ end }}
 </nav>
 
-{{ end }}
+{{ partial "footer.html" . }}

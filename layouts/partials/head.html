@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 {{ $alternate_title := replace .File.BaseFileName "_" " " | title }}
@@ -38,3 +40,5 @@
 }
 </style>
 </head>
+{{ partial "breadcrumb.html" . }}
+<article>
