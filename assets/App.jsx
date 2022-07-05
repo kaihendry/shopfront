@@ -18,7 +18,7 @@ const App = () => {
 	  // https://stripe.com/docs/payments/checkout/client#collect-shipping-address
 // uses the currency code specified in config.toml
 	  allowedCountries={currencyisofromcountryiso}
-	  allowedCountries={['SG', 'US']}
+//	  allowedCountries={['SG', 'US']}
       billingAddressCollection={false}
       successUrl={process.env.BaseURL + "/stripe/success"}
       cancelUrl={process.env.BaseURL + "/stripe/cancel"}
