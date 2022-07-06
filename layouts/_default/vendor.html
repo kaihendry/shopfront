@@ -1,8 +1,8 @@
 {{ partial "head.html" . }}
 {{ .Content }}
-<ul>
+<section class="products">
 {{ range .Pages }}
-<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+{{ partial "product.html" . }}
 {{ end }}
-</ul>
+</section>
 {{ partial "footer.html" . }}

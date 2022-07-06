@@ -6,6 +6,8 @@ import Products from './components/products'
 import CartDisplay from './components/cart-display'
 import { CartProvider } from 'use-shopping-cart'
 
+const countryisofromcurrencyiso = [process.env.CURRENCY.slice(0, -1)]
+
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_PUBLIC)
 
 const App = () => {
@@ -14,7 +16,9 @@ const App = () => {
       mode='client-only'
       stripe={stripePromise}
 	  // https://stripe.com/docs/payments/checkout/client#collect-shipping-address
-	  allowedCountries={['SG']}
+// uses the currency code specified in config.toml
+	  allowedCountries={countryisofromcurrencyiso}
+//	  allowedCountries={['SG', 'US']}
       billingAddressCollection={false}
       successUrl={process.env.BaseURL + "/stripe/success"}
       cancelUrl={process.env.BaseURL + "/stripe/cancel"}

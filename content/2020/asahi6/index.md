@@ -8,6 +8,8 @@ resources:
    title: Asahi box laying on the side
 Youtube:
  - pgXFZ_uU3JU
+tags:
+ - favorite
 ---
 
 Nice beer 👍

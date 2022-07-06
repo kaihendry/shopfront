@@ -1,21 +1,27 @@
-Idea behind project https://dabase.com/blog/2020/Shop-front/
-
+# shopfront
 * [Intro and inspiration](https://www.youtube.com/watch?v=KtHz5JO7QS4)
 * [Static Hugo client only MVP](https://www.youtube.com/watch?v=9TkttbV0Ydg)
 
-# Local development
+## Dependencies
+* [hugo](https://github.com/gohugoio/hugo)
+* [npm](https://github.com/npm/cli)
 
-Install [hugo](https://gohugo.io/)
+## Installation and local development
 
 	npm i
+	npm audit fix
+
+Find your stripe secret key [here](https://dashboard.stripe.com/apikeys). (Consider using /test/apikeys during testing).
+
 	echo STRIPE_SECRET=sk... > .env
 	edit config.toml
-	hugo serve
+	hugo server
 
+
+## Product creation
 Create products in `content/2020/`
 
-# Product content file
-
+### Product content file
 Structure of product content:
 
 	content/YYYY/SKU/index.md
@@ -30,18 +36,24 @@ checkout](https://stripe.com/docs/js/checkout/redirect_to_checkout#stripe_checko
 **Price ID** from the `data/price` directory via [Hugo Data
 templates](https://gohugo.io/templates/data-templates/).
 
-# Stripe client-only mode
+## Sync with stripe
+You don't need to create your product on stripe; `stripe-sync.sh` does this for you.
 
+	make
+
+
+## Publish to your website
+Move the contents of `public` to your webserver.
+
+## Stripe client-only mode
 <img src="https://s.natalian.org/2020-09-23/cant-delete-product.png">
 
 * https://useshoppingcart.com/usage/cartprovider#client-only-checkout-mode
 
-# Data structure
-
+## Data structure
 Follows that of https://useshoppingcart.com/usage/cartprovider/ in `layouts/_default/single.html`.
 
-# Delivery options
-
+## Delivery options
 How to advertise **delivery limitations** ASAP, as to not waste anybodies time?
 
 For example <https://online.vicsmeat.com.au/> asks for a post code off the bat.
