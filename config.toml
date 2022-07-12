@@ -1,4 +1,4 @@
-title = "Shop front demonstration"
+title = "shopfront"
 pluralizelisttitles = false
 # baseURL is needed for successUrl/cancelUrl redirection from Stripe
 baseURL = "https://shpfrnt.netlify.app"
@@ -10,7 +10,3 @@ baseURL = "https://shpfrnt.netlify.app"
 	category = "categories"
 	vendor = "vendors"
 	tag = "tags"
-[outputs]
-	page = ["html","json"]
-	section = ["html","json"]
-	home = ["html","json"]

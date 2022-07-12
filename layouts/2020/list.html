@@ -1,7 +1,7 @@
 {{ partial "head.html" . }}
 {{ .Content }}
 <section class="products">
-{{ range site.RegularPages }}
+{{ range .Pages }}
 {{ partial "product.html" . }}
 {{ end }}
 </section>
