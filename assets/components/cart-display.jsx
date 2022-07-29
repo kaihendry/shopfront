@@ -83,6 +83,7 @@ const lineItems = []
         })}
         <h3>Total Items in Cart: {cartCount}</h3>
         <h3>Total Price: {formattedTotalPrice}</h3>
+        <h4>The cart's total value must exceed .3 GBP (or equivalent) or nothing will happen!</h4>
         <Button sx={{ backgroundColor: 'black' }} onClick={handleSubmit}>
             Checkout
         </Button>
